@@ -1,4 +1,5 @@
 export class monPojetAngular {
+  id!: number;
   title!: string;
   description!: string;
   imageUrl!: string;
