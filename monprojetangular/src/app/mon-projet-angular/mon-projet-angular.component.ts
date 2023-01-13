@@ -1,3 +1,4 @@
+import { MonProjetService } from './../services/mon-projets.service';
 import { monPojetAngular } from './../models/mon-projet-angular.model';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -10,6 +11,8 @@ export class MonProjetAngularComponent implements OnInit {
   @Input() monPojetAngular!: monPojetAngular;
   buttonText!: string;
 
+  constructor(private monProjetService: MonProjetService) {}
+
   ngOnInit() {
     //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
     //Add 'implements OnInit' to the class.
@@ -17,10 +20,14 @@ export class MonProjetAngularComponent implements OnInit {
   }
   onProjet() {
     if (this.buttonText === 'Oh Projet !') {
-      this.monPojetAngular.projet++;
+      this.monProjetService.projetMonPojetAngularById(
+        this.monPojetAngular.id, 'projet'
+      );
       this.buttonText = 'Oops, unProjet !';
     } else {
-      this.monPojetAngular.projet--;
+      this.monProjetService.projetMonPojetAngularById(
+        this.monPojetAngular.id, 'unprojet'
+      );
       this.buttonText = 'Oh Projet !';
     }
   }
