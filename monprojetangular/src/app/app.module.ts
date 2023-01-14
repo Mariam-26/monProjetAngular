@@ -9,6 +9,7 @@ import { MonProjetAngularComponent } from './mon-projet-angular/mon-projet-angul
 import { MonProjetListComponent } from './mon-projet-list/mon-projet-list.component';
 import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
+import { SingleProjetAngularComponent } from './single-projet-angular/single-projet-angular.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
     MonProjetListComponent,
     HeaderComponent,
     LandingPageComponent,
+    SingleProjetAngularComponent,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
