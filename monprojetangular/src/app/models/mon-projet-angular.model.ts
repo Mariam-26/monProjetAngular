@@ -1,11 +1,13 @@
+// J'AI CREER CE FICHIER POUR POUVOIR CREER MA CLASS monPojetAngular
 export class monPojetAngular {
+  // CREATION DE MES PROPRIETES
   id!: number;
   title!: string;
   description!: string;
   imageUrl!: string;
   createdDate!: Date;
   projet!: number;
-  location?: string;
+  location?/* ? VEUT OPTIONNEL */: string;
 
   // constructor(
   //   public title: string,
