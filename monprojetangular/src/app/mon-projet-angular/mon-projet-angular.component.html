@@ -1,16 +1,37 @@
 <!-- La string interpolation est la méthode la plus simple pour afficher le contenu d'une variable dans le template. Il suffit de mettre le nom de la variable à afficher entre doubles accolades {{ }} dans le HTML -->
 
+<!-- La directive  [ngClass]  permet d'ajouter dynamiquement des classes à des éléments HTML.
+
+[ngClass]  prend un objet en argument où les clés sont des noms de classe CSS, et les valeurs sont les conditions selon lesquelles les classes doivent être appliquées. -->
 <div class="face-snap-card" [ngClass]="{ snapped: buttonText === 'Oops, unProjet !' }">
+  <!-- |pipe = Un pipe est appliqué dans le HTML et va formater la valeur qu'on lui passe selon le pipe utilisé sans toucher à la donnée sous-jacente. Un pipe permet de formater l'affichage d'une donnée sans modifier la donnée sous-jacente.
+
+Angular fournit trois pipes pour modifier la casse affichée d'une chaîne de caractères : UpperCasePipe, LowerCasePipe, et TitleCasePipe pour les majuscules, les minuscules et le mélange type "titre". -->
   <h2>{{ monPojetAngular.title | uppercase}}</h2>
+
+  <!-- DatePipe permet de formater les dates, et sans configuration fournit un formatage par défaut.
+
+DatePipe fournit des configurations prédéfinies avec des noms comme  short,  longDate  ou  mediumTime
+
+DatePipe permet également de personnaliser totalement le format d'affichage des dates avec des chaînes de caractères qui encodent le format souhaité, par exemple  'à HH:mm, le d MMMM yyyy' -->
   <p>Mis en ligne {{ monPojetAngular.createdDate | date: 'le d MMMM yyyy à HH:mm' }}</p>
-  
+
   <!-- L'attribute binding permet de lier la valeur d'une propriété TypeScript à un attribut HTML, en mettant l'attribut entre crochets  []  et en passant le nom de la propriété. -->
+
+  <!-- La directive  *ngFor  vous permet d'insérer un élément dans le DOM pour chaque élément dans un tableau.
+
+La syntaxe  let element of array  vous donne accès à l'élément de chaque itération, vous permettant de l'injecter dans un component, par exemple. -->
+
+  <!-- Une directive est une classe qui vient ajouter du comportement à l'élément sur lequel elle est posée. L'astérisque au début du nom  *ngIf  nous montre qu'il s'agit d'une directive structurelle, qui viendra donc toucher à la structure du document. -->
   <img [src]="monPojetAngular.imageUrl" [alt]="monPojetAngular.title" />
   <p>{{ monPojetAngular.description }}</p>
+  <!-- *ngIf  permet donc de structurer vos components selon les conditions que vous choisissez. -->
   <p *ngIf="monPojetAngular.location">Photo prise à {{ monPojetAngular.location }} </p>
   <p>
     <button (click)="onProjet()">{{ buttonText }}</button>
+    <!-- La directive  [ngStyle]  permet d'appliquer des styles qui dépendent de valeurs dynamiques, comme un texte qui, plus il y a de snaps, devient de plus en plus vert.
+
+La directive  [ngStyle]  prend comme argument un objet où les clés correspondent aux styles CSS à modifier, et les valeurs aux valeurs que doivent prendre ces styles. -->
     <span [ngStyle]="{ color: 'rgb(0,' + monPojetAngular.projet + ', 0)'}">{{ monPojetAngular.projet }}</span>
   </p>
 </div>
-
