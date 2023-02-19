@@ -11,6 +11,7 @@ import { HeaderComponent } from './header/header.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { SingleProjetAngularComponent } from './single-projet-angular/single-projet-angular.component';
 
+// APP.MODULE EST LA RACINE DE MON APPLI
 @NgModule({
   declarations: [
     AppComponent,
